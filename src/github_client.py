@@ -170,8 +170,18 @@ class GitHubClient:
             # Add milestone if provided
             if milestone:
                 try:
-                    milestone_obj = self.repo.get_milestone(title=milestone)
-                    issue_data['milestone'] = milestone_obj
+                    # Try to find existing milestone by title
+                    milestones = self.repo.get_milestones()
+                    milestone_obj = None
+                    for m in milestones:
+                        if m.title == milestone:
+                            milestone_obj = m
+                            break
+                    
+                    if milestone_obj:
+                        issue_data['milestone'] = milestone_obj
+                    else:
+                        logger.warning(f"Milestone '{milestone}' not found, creating issue without milestone")
                 except GithubException:
                     logger.warning(f"Milestone '{milestone}' not found, creating issue without milestone")
             

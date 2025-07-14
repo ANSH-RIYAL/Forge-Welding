@@ -1,4 +1,4 @@
-# Agentic Project Management Bot - Project Plan
+# The Anvil - Agentic Project Management Bot - Project Plan
 
 ## 🎯 Project Overview
 
@@ -9,6 +9,7 @@
 - Compare against existing GitHub issues
 - Generate missing tickets using LLM prompting
 - Post new tickets via GitHub API
+- Integration with GitHub Projects (Beta/Next) for visual project management
 
 ## 📋 Development Process (3-Step Approach)
 
@@ -18,13 +19,18 @@
 - ✅ Established directory organization and naming conventions
 - ✅ Designed prompt templates and configuration schema
 
-### 🔄 Step 2: Static Files Phase - IN PROGRESS
+### ✅ Step 2: Static Files Phase - COMPLETED
 - ✅ Created all template files and sample data
 - ✅ Established configuration structure
 - ✅ Defined prompt templates and ticket schemas
+- ✅ Created utility scripts for testing and project management
 
-### ⏳ Step 3: Implementation Phase - PENDING
-- Build the actual implementation based on the design and static files
+### 🔄 Step 3: Implementation Phase - IN PROGRESS
+- ✅ Core modules implemented (parser.py, llm_planner.py, config_manager.py, run.py)
+- ✅ GitHub integration implemented (github_client.py, github_graphql.py)
+- ✅ Testing framework established
+- ⏳ Project board integration (pending token permissions)
+- ⏳ Complete CLI interface refinement
 
 ## 🏗️ Finalized System Architecture
 
@@ -34,10 +40,10 @@
 forge-welding/
 ├── src/
 │   ├── parser.py              # Parse YAML implementation plans
-│   ├── fetch_issues.py        # Fetch GitHub issues via API
 │   ├── llm_planner.py         # LLM integration for ticket generation
-│   ├── create_tickets.py      # Post tickets to GitHub
 │   ├── config_manager.py      # Load and validate configuration
+│   ├── github_client.py       # GitHub API integration
+│   ├── github_graphql.py      # GitHub GraphQL API for projects
 │   └── run.py                 # Main CLI runner
 ├── templates/
 │   ├── prompts/
@@ -49,27 +55,35 @@ forge-welding/
 ├── data/
 │   ├── sample_issues.json     # Sample GitHub issues structure
 │   └── ticket_templates.json  # Ticket generation templates
+├── scripts/                   # Utility and testing scripts
+│   ├── manage_project.py      # Project board management
+│   ├── check_projects.py      # Project listing utility
+│   ├── create_example_tickets.py  # Ticket creation utility
+│   ├── create_milestones.py   # Milestone creation utility
+│   ├── test_project_board.py  # Project board testing
+│   └── test_token_permissions.py  # Token permission testing
+├── tests/
+│   └── test_github_functions.py  # GitHub integration tests
 ├── logs/                      # Log files (gitignored)
 ├── docs/
 │   ├── API.md                 # API documentation
 │   └── USAGE.md               # Usage instructions
-├── tests/
-│   └── test_*.py             # Unit tests
 ├── requirements.txt           # Python dependencies
 ├── PROJECT_PLAN.md           # This file
+├── README.md                 # Project documentation
 └── .gitignore               # Git ignore rules
 ```
 
 ### 🔧 Core Modules Design
 
-| Module | Purpose | Dependencies |
-|--------|---------|--------------|
-| `parser.py` | Parse YAML plans into structured data | `yaml`, `dataclasses` |
-| `fetch_issues.py` | GitHub API integration | `requests`, `github` |
-| `llm_planner.py` | Gemini API integration | `google.generativeai` |
-| `create_tickets.py` | Create GitHub issues | `requests`, `github` |
-| `config_manager.py` | Configuration management | `yaml`, `os` |
-| `run.py` | Main CLI interface | All above modules |
+| Module | Purpose | Dependencies | Status |
+|--------|---------|--------------|--------|
+| `parser.py` | Parse YAML plans into structured data | `yaml`, `dataclasses` | ✅ Implemented |
+| `llm_planner.py` | Gemini API integration | `google.generativeai` | ✅ Implemented |
+| `config_manager.py` | Configuration management | `yaml`, `os` | ✅ Implemented |
+| `github_client.py` | GitHub API integration | `requests`, `github` | ✅ Implemented |
+| `github_graphql.py` | GitHub GraphQL API for projects | `requests` | ✅ Implemented |
+| `run.py` | Main CLI interface | All above modules | ✅ Implemented |
 
 ### 📊 Data Models
 
@@ -119,15 +133,15 @@ phases:
 #### Config File Structure (`config.yaml`)
 ```yaml
 gemini:
-  api_key: "YOUR_GEMINI_API_KEY"
+  api_key: "YOUR_GEMINI_API_KEY_HERE"
   model: "gemini-1.5-flash"
   max_tokens: 2048
   temperature: 0.1
 
 github:
-  api_token: "YOUR_GITHUB_TOKEN"
-  repository: "ANSH-RIYAL/Test-run"
-  project_id: 3
+  api_token: "YOUR_GITHUB_TOKEN_HERE"
+  repository: "YOUR_GITHUB_USERNAME/YOUR_REPO_NAME"
+  project_id: 1  # Set your project ID here
   base_url: "https://api.github.com"
 
 paths:
@@ -201,28 +215,36 @@ bot:
 - ✅ Created sample data files
 - ✅ Created ticket templates
 - ✅ Created gitignore rules
+- ✅ Created utility scripts for testing and project management
 
-### Step 3: Implementation Phase - READY TO START
-1. Create Python source files (`src/`)
-2. Implement configuration management
-3. Implement YAML parser
-4. Implement GitHub API integration
-5. Implement Gemini LLM integration
-6. Implement main CLI runner
-7. Add error handling and logging
-8. Create tests
+### Step 3: Implementation Phase - IN PROGRESS ✅
+- ✅ Core modules implemented (parser.py, llm_planner.py, config_manager.py, run.py)
+- ✅ GitHub integration implemented (github_client.py, github_graphql.py)
+- ✅ Testing framework established
+- ✅ Repository structure organized and cleaned up
+- ✅ Configuration template sanitized
+- ✅ README.md created with comprehensive documentation
+
+### Next Implementation Tasks:
+1. ⏳ Complete project board integration (resolve token permissions)
+2. ⏳ Refine CLI interface and error handling
+3. ⏳ Add comprehensive unit tests
+4. ⏳ Implement dry-run mode improvements
+5. ⏳ Add support for custom labels and milestones
 
 ## 📝 Implementation Notes
 
 - **LLM Provider**: Gemini API (free tier)
-- **Repository**: `ANSH-RIYAL/Test-run`
-- **GitHub Project**: ID 3
+- **Repository**: Configurable via config.yaml
+- **GitHub Project**: Configurable via config.yaml
 - **Error Display**: All errors shown on terminal
 - **Logging**: Overwrite log file on each run
 - **Configuration**: Single file with all settings
 - **Security**: Config file gitignored, template provided
+- **Project Board**: GitHub Projects (Beta/Next) integration
+- **Testing**: Comprehensive test suite with utility scripts
 
 ---
 
-**Status**: Step 1 Complete, Step 2 Complete, Ready for Step 3 - Implementation
+**Status**: Step 1 Complete, Step 2 Complete, Step 3 In Progress - Core Implementation Complete
 **Last Updated**: [Current Date] 

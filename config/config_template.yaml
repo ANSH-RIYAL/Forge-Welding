@@ -11,8 +11,8 @@ gemini:
 # GitHub API Configuration
 github:
   api_token: "YOUR_GITHUB_TOKEN_HERE"
-  repository: "ANSH-RIYAL/Test-run"
-  project_id: 3
+  repository: "YOUR_GITHUB_USERNAME/YOUR_REPO_NAME"
+  project_id: 1  # Set your project ID here
   base_url: "https://api.github.com"
 
 # File Paths
