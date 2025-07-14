@@ -1,0 +1,61 @@
+{
+  "ticket_templates": {
+    "frontend": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nAcceptance Criteria:\n- [ ] {criteria_1}\n- [ ] {criteria_2}\n- [ ] {criteria_3}",
+      "labels": ["frontend", "ui"],
+      "estimated_points": 2
+    },
+    "backend": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nTechnical Requirements:\n- {tech_req_1}\n- {tech_req_2}\n- {tech_req_3}",
+      "labels": ["backend", "api"],
+      "estimated_points": 3
+    },
+    "ml": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nML Requirements:\n- Model type: {model_type}\n- Dataset: {dataset_info}\n- Performance metrics: {metrics}",
+      "labels": ["ml", "ai"],
+      "estimated_points": 5
+    },
+    "integration": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nIntegration Points:\n- {integration_point_1}\n- {integration_point_2}\n- {integration_point_3}",
+      "labels": ["integration", "api"],
+      "estimated_points": 4
+    },
+    "security": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nSecurity Considerations:\n- {security_consideration_1}\n- {security_consideration_2}\n- {security_consideration_3}",
+      "labels": ["security", "auth"],
+      "estimated_points": 4
+    },
+    "storage": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nStorage Requirements:\n- Storage type: {storage_type}\n- Data format: {data_format}\n- Access patterns: {access_patterns}",
+      "labels": ["storage", "data"],
+      "estimated_points": 3
+    },
+    "refactoring": {
+      "description_template": "This subtask belongs to:\n- Phase: {phase_name}\n- Task: {task_name}\n\nObjective:\n{description}\n\nRefactoring Goals:\n- {refactor_goal_1}\n- {refactor_goal_2}\n- {refactor_goal_3}",
+      "labels": ["refactoring", "cleanup"],
+      "estimated_points": 2
+    }
+  },
+  "label_colors": {
+    "frontend": "0366d6",
+    "backend": "d93f0b", 
+    "ml": "f9d0c4",
+    "ai": "f9d0c4",
+    "integration": "0e8a16",
+    "api": "d93f0b",
+    "security": "d73a4a",
+    "auth": "d73a4a",
+    "storage": "0e8a16",
+    "data": "0e8a16",
+    "refactoring": "e4e669",
+    "cleanup": "e4e669",
+    "ui": "e4e669",
+    "camera": "d93f0b",
+    "training": "f9d0c4",
+    "data-collection": "0e8a16",
+    "optimization": "f9d0c4",
+    "logic": "d73a4a",
+    "ux": "0366d6",
+    "documentation": "e4e669"
+  }
+} 

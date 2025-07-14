@@ -1,0 +1,111 @@
+project: "FaceID-Based Expression-Gated Storage System"
+
+phases:
+  - name: "Data Collection & Initial Setup"
+    description: "Begin work on data infrastructure and a local HTML interface."
+    tasks:
+      - name: "Setup basic HTML local storage interface"
+        description: "Create the initial web interface for the system"
+        subtasks:
+          - name: "Create static HTML + JS page with basic login form"
+            description: "Build a simple HTML page with camera capture placeholder"
+            estimated_points: 2
+            labels: ["frontend", "ui"]
+          - name: "Add placeholder image capture for webcam"
+            description: "Implement basic webcam access and image capture functionality"
+            estimated_points: 3
+            labels: ["frontend", "camera"]
+          - name: "Create local folder structure for storage"
+            description: "Setup user-based subfolders locally for file storage"
+            estimated_points: 1
+            labels: ["backend", "storage"]
+          - name: "Create dummy file upload and access UI"
+            description: "Build basic file upload interface and access controls"
+            estimated_points: 2
+            labels: ["frontend", "storage"]
+
+  - name: "Model Development"
+    description: "Train and develop the core AI models for face recognition and emotion detection."
+    tasks:
+      - name: "Train Face ID Model"
+        description: "Develop facial recognition capabilities"
+        subtasks:
+          - name: "Collect sample facial data"
+            description: "Gather diverse facial images for training dataset"
+            estimated_points: 5
+            labels: ["ml", "data-collection"]
+          - name: "Train on face embedding matching"
+            description: "Implement and train face embedding model"
+            estimated_points: 8
+            labels: ["ml", "training"]
+          - name: "Export model to ONNX/TFLite"
+            description: "Convert trained model to browser-compatible format"
+            estimated_points: 3
+            labels: ["ml", "optimization"]
+      - name: "Train Emotion Recognition Model"
+        description: "Develop emotion classification system"
+        subtasks:
+          - name: "Collect emotion-labeled face data"
+            description: "Gather facial images labeled with emotions (angry, neutral, etc.)"
+            estimated_points: 4
+            labels: ["ml", "data-collection"]
+          - name: "Train CNN classifier for emotion (e.g. angry, neutral)"
+            description: "Train convolutional neural network for emotion classification"
+            estimated_points: 6
+            labels: ["ml", "training"]
+          - name: "Export model to ONNX/TFLite"
+            description: "Convert emotion model to browser-compatible format"
+            estimated_points: 3
+            labels: ["ml", "optimization"]
+
+  - name: "System Integration"
+    description: "Connect all components and implement access control logic."
+    tasks:
+      - name: "Connect models to frontend"
+        description: "Integrate AI models with the web interface"
+        subtasks:
+          - name: "Load Face ID model in browser/backend"
+            description: "Integrate facial recognition model with web application"
+            estimated_points: 4
+            labels: ["integration", "frontend"]
+          - name: "Load Emotion model and detect 'angry' on login"
+            description: "Implement emotion detection during login process"
+            estimated_points: 5
+            labels: ["integration", "security"]
+      - name: "Access control logic"
+        description: "Implement the core security mechanism"
+        subtasks:
+          - name: "Block access unless emotion is 'angry'"
+            description: "Implement emotion-based access control system"
+            estimated_points: 4
+            labels: ["security", "logic"]
+          - name: "Create feedback popup for unauthorized expressions"
+            description: "Build user feedback system for rejected access attempts"
+            estimated_points: 2
+            labels: ["frontend", "ux"]
+
+  - name: "Storage Backend & Refactor"
+    description: "Switch to cloud storage and clean up the codebase."
+    tasks:
+      - name: "Switch from local to S3-compatible storage"
+        description: "Migrate from local file storage to cloud storage"
+        subtasks:
+          - name: "Setup local MinIO or connect to AWS S3"
+            description: "Configure cloud storage backend"
+            estimated_points: 3
+            labels: ["backend", "storage"]
+          - name: "Update file upload paths to match S3 interface"
+            description: "Modify file handling to work with cloud storage"
+            estimated_points: 4
+            labels: ["backend", "integration"]
+      - name: "Code cleanup and modularization"
+        description: "Refactor and organize the codebase"
+        subtasks:
+          - name: "Refactor HTML + JS into modules"
+            description: "Organize frontend code into reusable modules"
+            estimated_points: 3
+            labels: ["refactoring", "frontend"]
+          - name: "Comment code and organize functions"
+            description: "Add documentation and improve code organization"
+            estimated_points: 2
+            labels: ["refactoring", "documentation"] 

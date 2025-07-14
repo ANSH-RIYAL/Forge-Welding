@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "number": 1,
+    "title": "Create static HTML + JS page with basic login form",
+    "body": "This subtask belongs to:\n- Phase 1: Data Collection & Initial Setup\n- Task: Setup basic HTML local storage interface\n\nObjective:\n- A simple HTML form with camera capture placeholder\n- Basic styling and responsive design\n- Placeholder for webcam integration",
+    "state": "open",
+    "labels": [
+      {
+        "name": "frontend",
+        "color": "0366d6"
+      },
+      {
+        "name": "ui",
+        "color": "e4e669"
+      }
+    ],
+    "milestone": {
+      "title": "Data Collection & Initial Setup"
+    },
+    "created_at": "2024-01-15T10:00:00Z",
+    "updated_at": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "title": "Add placeholder image capture for webcam",
+    "body": "This subtask belongs to:\n- Phase 1: Data Collection & Initial Setup\n- Task: Setup basic HTML local storage interface\n\nObjective:\n- Implement basic webcam access\n- Add image capture functionality\n- Display captured image preview",
+    "state": "open",
+    "labels": [
+      {
+        "name": "frontend",
+        "color": "0366d6"
+      },
+      {
+        "name": "camera",
+        "color": "d93f0b"
+      }
+    ],
+    "milestone": {
+      "title": "Data Collection & Initial Setup"
+    },
+    "created_at": "2024-01-15T10:05:00Z",
+    "updated_at": "2024-01-15T10:05:00Z"
+  },
+  {
+    "id": 3,
+    "number": 3,
+    "title": "Collect sample facial data",
+    "body": "This subtask belongs to:\n- Phase 2: Model Development\n- Task: Train Face ID Model\n\nObjective:\n- Gather diverse facial images for training dataset\n- Ensure data quality and diversity\n- Organize data for training pipeline",
+    "state": "closed",
+    "labels": [
+      {
+        "name": "ml",
+        "color": "f9d0c4"
+      },
+      {
+        "name": "data-collection",
+        "color": "0e8a16"
+      }
+    ],
+    "milestone": {
+      "title": "Model Development"
+    },
+    "created_at": "2024-01-15T10:10:00Z",
+    "updated_at": "2024-01-16T14:30:00Z"
+  }
+] 

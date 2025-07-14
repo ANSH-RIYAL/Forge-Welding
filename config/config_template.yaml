@@ -1,0 +1,34 @@
+# Configuration Template for Agentic Project Management Bot
+# Copy this file to config.yaml and fill in your actual values
+
+# Gemini API Configuration
+gemini:
+  api_key: "YOUR_GEMINI_API_KEY_HERE"
+  model: "gemini-1.5-flash"
+  max_tokens: 2048
+  temperature: 0.1
+
+# GitHub API Configuration
+github:
+  api_token: "YOUR_GITHUB_TOKEN_HERE"
+  repository: "ANSH-RIYAL/Test-run"
+  project_id: 3
+  base_url: "https://api.github.com"
+
+# File Paths
+paths:
+  implementation_plan: "templates/plans/implementation_plan.yaml"
+  prompt_template: "templates/prompts/ticket_generation.yaml"
+  log_file: "logs/bot_execution.log"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file_mode: "w"  # 'w' to overwrite, 'a' to append
+
+# Bot Behavior
+bot:
+  dry_run: false  # Set to true to see what would be created without actually creating tickets
+  max_new_tickets: 10  # Maximum number of tickets to create in one run
+  include_closed_issues: false 
